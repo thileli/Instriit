@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<link rel="stylesheet" href="css/style.css" />
+	<title>MyBestHomeArea</title>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+		<h1> BIENVENUE SUR LA PLATE-FORME LOGEMENT</h1>
+		</div>
+			<h3> Elle vous offre la possibilte de vous renseignez ou temoignez sur un quartier</h3>
+		<div id="form1">
+			<div class="test2">
+			<form action="" method="post">
+				<input type="checkbox" name="option[]" value="option1"/>Connaitre votre quartier
+				<input type="checkbox" name="option[]" value="option2"/>Donnez un avis sur votre quartier
+			</form>
+			</div>
+			<h3>Choisissez vos critéres </h3>
+			<div class="test1">
+			<form action="" method="post">
+				<input type="checkbox" name="critere[]" value="commerce"/>Commerce 
+				<input type="checkbox" name="critere[]" value="etudes"/> Etudes<br/>
+				<input type="checkbox" name="critere[]" value="transports"/>Transports
+				<input type="checkbox" name="critere[]" value="loisirs"/>Loisirs
+			</form>
+			</div>
+			<h3>Selectionner un quartier</h3>
+			<div class="test">
+			<?php
+					$listequartier= array(
+								       	'Belle Ville',
+								        'Republique',
+								        'Ledru-Rolin',
+								        'Chatelet',
+								        'Bastille',
+								        'Concorde',
+								        'Nation',
+								        'Vincennes',
+								        'Jourdain',
+								        'Champs-elysées',
+								        'Charonne',
+								        'Ourcq'
+								        );
+			function listbox_quartier($quartier='')
+			{        
+			global $listequartier;
+			    for ($i=1;$i<13;$i++)
+			    {
+			    $j = $i-1;
+			    if ($i<10) $i='0'.$i;
+			    echo '<option value="',$i,'"';
+			    if($i==$quartier){
+			    echo ' selected';
+			    }
+			    echo '>',$listequartier[$j],'</option>';
+			    }
+			}
+
+			$id_quartier=date('m');
+			echo '<form>
+			<table>
+			<tr><td>
+			       
+			        <select name="quartier_deb">',listbox_quartier($id_quartier),'</select>
+			<br /><br /></td></tr>
+			</table>
+			</form>';
+			?>
+		</div>
+	</div>
+</body>
