@@ -1,0 +1,25 @@
+<?php
+	$connexion = mysqli_connect("localhost", "root","root", "base_instreet");
+	$id = 1;
+	$name = "Bercy";
+	$scoreCom = 3;
+	$scoreEtu = 2;
+	$scoreTrans = 7;
+	$scoreLois = 8;
+	if(mysqli_connect_errno()){
+		$reponse = "connexion MYSQL(".utf8_encode(mysqli_connect_errno()).")!";
+	}
+	else{
+			$query = " INSERT INTO `score` VALUES('','".$name."', '".$scoreCom."','".$scoreEtu."','".$scoreTrans."','".$scoreLois."')";
+		 			
+			if(mysqli_query($connexion, $query)){
+		 		$reponse = "succes!";
+		 		echo "succes";
+		 	}
+		 	else{
+		 		$reponse = "insertion Mysql, Veuillez retenter !";
+		 		echo $reponse;
+		 	}
+ 
+		}
+?>
