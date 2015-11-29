@@ -1,0 +1,10 @@
+<?php 
+$address = "12 rue Mongenot";
+$postalCode = 75012;
+$city = "Carentan";
+$url = 'http://maps.google.fr/maps?f=q&hl=fr&q='.urlencode($address).','.urlencode(' '.$postalCode.' '.$city);
+ 
+header('HTTP/1.1 204 No Content');
+header('Location: '.$url);
+ 
+?>
